@@ -11,6 +11,10 @@
 	<description>Artifact to send emails</description>
 	<url>https://github.com/Ivos-Labs/ivos-mail</url>
 
+	<!--
+	mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.8.0.2131:sonar sonar:sonar -Dsonar.projectKey=com.ivoslabs.mail:ivos-mail -Dsonar.host.url=http://localhost:9000 -Dsonar.login=3752e3181f9489f8ca82b1d11af09f75f3c47786
+	-->
+
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
@@ -29,19 +33,15 @@
 		<!-- spring-boot-starter-mail -->
 		<spring-boot-starter-mail.version>2.4.2</spring-boot-starter-mail.version>
 
-		<!-- tests -->
-		<junit.version>4.12</junit.version>
-
 	</properties>
 
 	<dependencies>
 
-<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-configuration-processor</artifactId>
-    <version>2.4.2</version>
-</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<version>2.4.2</version>
+		</dependency>
 
 
 		<dependency>
@@ -56,13 +56,6 @@
 			<version>${spring-boot-starter-mail.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -75,6 +68,21 @@
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.7.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.7.0</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

@@ -10,7 +10,7 @@ package com.ivoslabs.mail.enums;
  * @author www.ivoslabs.com
  *
  */
-public enum ExampleLists {
+public enum ExampleDistLists {
 
     ADMIN(),
 

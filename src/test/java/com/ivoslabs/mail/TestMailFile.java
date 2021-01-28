@@ -3,15 +3,14 @@
  */
 package com.ivoslabs.mail;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.ivoslabs.mail.comp.EmailComp;
 
@@ -22,7 +21,7 @@ import com.ivoslabs.mail.comp.EmailComp;
  * @author www.ivoslabs.com
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:spring/application-context.xml")
 public class TestMailFile {
 
@@ -32,6 +31,6 @@ public class TestMailFile {
 
     @Test
     public void test01() {
-        assertTrue(this.emailComp.sendEmail("user@ivoslabs.com", "Test-01-file", "<b>Content-file</b>", new File("D://temp/test.txt")));
+        Assertions.assertTrue(this.emailComp.sendEmail("user@ivoslabs.com", "Test-01-file", "<b>Content-file</b>", new File("D://temp/test.txt")));
     }
 }

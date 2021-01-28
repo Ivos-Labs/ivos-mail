@@ -20,6 +20,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 /**
+ * Spring Java Mail configuration
+ *
  * @since 1.0.0
  * @author www.ivoslabs.com
  *
@@ -54,18 +56,43 @@ public class MailCfg {
         super();
     }
 
+    /**
+     * Reads the mailing lists
+     *
+     * @return the mailing lists
+     * @since 1.0.0
+     * @author imperezivan
+     *
+     */
     @Bean("mailingLists")
     @ConfigurationProperties(prefix = "spring.mailing.lists")
     public Map<String, String[]> getMailingLists() {
         return new HashMap<>();
     }
 
+    /**
+     * Reads the additional java mail properties
+     *
+     * @return the additional java mail properties
+     * @since 1.0.0
+     * @author imperezivan
+     *
+     */
     @Bean("mailProperties")
     @ConfigurationProperties(prefix = "spring.mail.properties")
     public Map<String, String> getMailProperties() {
         return new HashMap<>();
     }
 
+    /**
+     * Creates a JavaMailSender
+     *
+     * @param mailProperties additional java mail properties
+     * @return a JavaMailSender
+     * @since 1.0.0
+     * @author imperezivan
+     *
+     */
     @Bean
     public JavaMailSender getJavaMailSender(@Autowired @Qualifier("mailProperties") Map<String, String> mailProperties) {
 
