@@ -1,0 +1,29 @@
+<div>
+	<div class='title'>{{{labelFor 'project.admin.title.alert'}}}</div>
+	<div class='content'>
+		<p>content: {{content}}</p>
+		<p>html content: {{{htmlcontent}}}</p>
+		<p>
+			{{#if error}} 
+				error text 
+			{{/if}}
+						
+			{{#if alert}}
+				alert was true
+			{{else}}
+				alert was false
+			{{/if}}
+			
+			{{#unless alert}}
+				alert text
+			{{/unless}}
+		</p>
+
+		<p>List</p>
+		{{#each alerts}}
+		<p>{{code}} {{msg}}</p>
+		{{/each}}
+	</div>
+</div>
+
+
